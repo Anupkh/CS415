@@ -1,9 +1,17 @@
-//package a1;
-//
-//public class Worker {
-//
-//	public Worker(String name, Set<Qualification> qs, double salary){}
-//
+package a1;
+
+import java.util.Set;
+
+public class Worker {
+    private String name;
+    private Set<Qualification> qs;
+    private double salary;
+	public Worker(String name, Set<Qualification> qs, double salary){
+        this.name = name;
+        this.qs = qs;
+        this.salary = salary;
+    }
+
 //	@Override
 //	public boolean equals(Object o) {}
 //
@@ -33,4 +41,4 @@
 //	public boolean willOverload(Project p) {}
 //
 //	public boolean isAvailable() {}
-//}
+}
