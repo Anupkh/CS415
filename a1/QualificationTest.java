@@ -14,41 +14,41 @@ public class QualificationTest {
 
     @Test
     public void testToEquals() {
-        Qualification a1 = new Qualification("tools");
-        Qualification a2 = new Qualification("tools");
-        Qualification a3 = new Qualification(null);
+        Qualification q1 = new Qualification("tools");
+        Qualification q2 = new Qualification("tools");
+        Qualification q3 = new Qualification(null);
 
-        assertTrue(a1.equals(a2));
-        assertFalse(a2.equals(a3));
+        assertTrue(q1.equals(q2));
+        assertFalse(q2.equals(q3));
     }
 
     @Test
     public void testToString(){
-        Qualification a1 = new Qualification("tools");
-        assertEquals("tools", a1.toString());
+        Qualification q1 = new Qualification("tools");
+        assertEquals("tools", q1.toString());
     }
 
 
     @Test
     public void testAddWorker(){
-        Qualification a1 = new Qualification("tools");
-        a1.addWorker(w1);
-        assertFalse(a1.getWorkers().size() > 1);
-        a1.addWorker(w2);
-        assertTrue(a1.getWorkers().size() == 2);
+        Qualification q1 = new Qualification("tools");
+        q1.addWorker(w1);
+        assertFalse(q1.getWorkers().size() > 1);
+        q1.addWorker(w2);
+        assertTrue(q1.getWorkers().size() == 2);
 
     }
 
     @Test
     public void testRemoveWorker(){
-        Qualification a1 = new Qualification("tools");
+        Qualification q1 = new Qualification("tools");
 
-        a1.addWorker(w1);
-        assertEquals(1,a1.getWorkers().size());
-        a1.removeWorker(w1);
-        assertEquals(0, a1.getWorkers().size());
-        a1.addWorker(w2);
-        a1.removeWorker(w2);
-        assertEquals(0, a1.getWorkers().size());
+        q1.addWorker(w1);
+        assertEquals(1,q1.getWorkers().size());
+        q1.removeWorker(w1);
+        assertEquals(0, q1.getWorkers().size());
+        q1.addWorker(w2);
+        q1.removeWorker(w2);
+        assertEquals(0, q1.getWorkers().size());
     }
 }

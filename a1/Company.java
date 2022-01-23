@@ -1,9 +1,9 @@
-//package a1;
-//
-//public class Company {
-//
-//	public Company(String name) {}
-//
+package a1;
+
+public class Company {
+
+	public Company(String name) {}
+
 //	@Override
 //	public boolean equals(Object o) {}
 //
@@ -43,4 +43,4 @@
 //	public void unassign (Worker w, Project p) {}
 //
 //	public void unassignAll (Worker w) {}
-//}
+}

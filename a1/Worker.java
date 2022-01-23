@@ -26,15 +26,14 @@ public class Worker {
         return this.name == w1.name;
     }
 
-//	@Override
-//	public String toString() {
-//        return this.name + ":" +
-//    }
-//
+	@Override
+	public String toString() {
+        return this.name + ":" + this.projects.size() + ":" + this.qs.size() + ":" + (int)Math.floor(this.salary);
+    }
+
 	public String getName() {
         return this.name;
     }
-//
 	public void setName(String s) {
         this.name = s;
     }
