@@ -1,8 +1,17 @@
-//package a1;
-//
-//public class Project {
-//	public Project(String name, Set<Qualification> qs, ProjectSize size) {}
-//
+package a1;
+
+import java.util.Set;
+
+public class Project {
+    private String name;
+    private Set<Qualification> qs;
+    private ProjectSize size;
+	public Project(String name, Set<Qualification> qs, ProjectSize size) {
+        this.name = name;
+        this.qs = qs;
+        this.size = size;
+    }
+
 //	@Override
 //	public boolean equals(Object o) {}
 //
@@ -13,7 +22,9 @@
 //
 //	public void setName(String s) {}
 //
-//	public ProjectSize getSize() {}
+	public ProjectSize getSize() {
+        return this.size;
+    }
 //
 //	public void setSize(ProjectSize size) {}
 //
@@ -36,4 +47,4 @@
 //	public Set<Qualification> getMissingQualifications() {}
 //
 //	public boolean isHelpful(Worker w) {}
-//}
+}

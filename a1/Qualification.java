@@ -20,11 +20,7 @@ public class Qualification {
 			return false;
 		}
 		Qualification qual = (Qualification)o;
-		if(this.description == qual.description){
-			return true;
-		}else{
-			return false;
-		}
+		return this.description == qual.description;
 	}
 
 	@Override

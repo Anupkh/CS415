@@ -51,5 +51,4 @@ public class QualificationTest {
         a1.removeWorker(w2);
         assertEquals(0, a1.getWorkers().size());
     }
-
 }
