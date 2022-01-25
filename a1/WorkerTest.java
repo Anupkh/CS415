@@ -15,6 +15,20 @@ public class WorkerTest {
         assertTrue(w1.equals(w1));
         assertFalse(w1.equals(w2));
     }
+
+    @Test
+    public void testToString(){
+        Worker w3 = new Worker("Kate", new HashSet<Qualification>(), 100000.1);
+        Qualification q1 = new Qualification("Tools");
+        Qualification q2 = new Qualification("Computer");
+        w3.addQualification(q1);
+        w3.addQualification(q2);
+        Project p1 = new Project("Build", w1.getQualifications(), ProjectSize.LARGE);
+        Project p2 = new Project("Create", w1.getQualifications(), ProjectSize.MEDIUM);
+        w3.addProject(p1);
+        w3.addProject(p2);
+        assertEquals("Kate:2:2:100000", w3.toString());
+    }
     @Test
     public void testGetName(){
         assertEquals("Bob", w1.getName());
