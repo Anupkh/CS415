@@ -31,7 +31,9 @@ public class Qualification {
 	}
 
 	public void addWorker(Worker w) {
-		workerSet.add(w);
+		if(!this.workerSet.contains(w)) {
+			workerSet.add(w);
+		}
 	}
 
 	public void removeWorker(Worker w) {

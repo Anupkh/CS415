@@ -18,6 +18,21 @@ public class ProjectTest {
     }
 
     @Test
+    public void testToString(){
+        Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
+        Worker w1 = new Worker("Bob", new HashSet<Qualification>(), 30000);
+        Worker w2 = new Worker("Sam", new HashSet<Qualification>(), 50000);
+        Worker w3 = new Worker("Katie", new HashSet<Qualification>(), 60000);
+        p1.addWorker(w1);
+        p1.addWorker(w2);
+        p1.addWorker(w3);
+
+        p1.setStatus(ProjectStatus.PLANNED);
+
+        assertEquals("Rocket:3:PLANNED", p1.toString());
+    }
+
+    @Test
     public void testGetName(){
         Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
         assertEquals("Rocket", p1.getName());
@@ -68,6 +83,18 @@ public class ProjectTest {
     }
 
     @Test
+    public void testGetWorkers(){
+        Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
+        Worker w1 = new Worker("Bob", new HashSet<Qualification>(), 30000);
+        Worker w2 = new Worker("Sam", new HashSet<Qualification>(), 50000);
+        Worker w3 = new Worker("Katie", new HashSet<Qualification>(), 60000);
+        p1.addWorker(w1);
+        p1.addWorker(w2);
+        p1.addWorker(w3);
+        assertEquals(3, p1.getWorkers().size());
+    }
+
+    @Test
     public void testRemoveAllWorkers(){
         Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
         Worker w1 = new Worker("Bob", new HashSet<Qualification>(), 30000);
@@ -88,19 +115,16 @@ public class ProjectTest {
     }
 
     @Test
-    public void testAddQualification(){
+    public void testGetRequiredQualifications(){
         Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
-        assertEquals(0, p1.getRequiredQualifications().size());
         Qualification q1 = new Qualification("tools");
         p1.addQualification(q1);
         assertEquals(1, p1.getRequiredQualifications().size());
-
-
-
     }
     @Test
-    public void testGetRequiredQualifications(){
+    public void testAddQualification(){
         Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
+        assertEquals(0, p1.getRequiredQualifications().size());
         Qualification q1 = new Qualification("tools");
         p1.addQualification(q1);
         assertEquals(1, p1.getRequiredQualifications().size());
@@ -131,16 +155,22 @@ public class ProjectTest {
         w3.addQualification(q2);
         assertEquals(0, p1.getMissingQualifications().size());
 
+
         p1.removeAllWorkers();
         assertEquals(2, p1.getMissingQualifications().size());
+
     }
 
 
     @Test
     public void testIsHelpful(){
         Project p1 = new Project("Rocket", new HashSet<Qualification>(), ProjectSize.MEDIUM);
+
         Qualification q1 = new Qualification("tools");
         Qualification q2 = new Qualification("bobcat");
+
+        p1.addQualification(q1);
+        p1.addQualification(q2);
 
         Worker w1 = new Worker("Bob", new HashSet<Qualification>(), 30000);
         w1.addQualification(q1);
@@ -148,8 +178,7 @@ public class ProjectTest {
         w2.addQualification(q2);
         Worker w3 = new Worker("Katie", new HashSet<Qualification>(), 60000);
 
-        p1.addQualification(q1);
-        p1.addQualification(q2);
+
         p1.addWorker(w1);
 
        assertTrue(p1.isHelpful(w2));

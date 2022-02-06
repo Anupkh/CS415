@@ -30,7 +30,7 @@ public class QualificationTest {
 
 
     @Test
-    public void testAddWorker(){
+    public void testAddGetWorker(){
         Qualification q1 = new Qualification("tools");
         q1.addWorker(w1);
         assertFalse(q1.getWorkers().size() > 1);

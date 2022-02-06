@@ -8,6 +8,7 @@ public class Worker {
     private Set<Qualification> qs;
     private double salary;
     private Set<Project> projects = new HashSet<Project>();
+
 	public Worker(String name, Set<Qualification> qs, double salary){
         this.name = name;
         this.qs = qs;
@@ -49,7 +50,8 @@ public class Worker {
     }
 
 	public void addQualification(Qualification q) {
-        this.qs.add(q);
+        if(!this.qs.contains(q))
+            this.qs.add(q);
     }
 
 	public Set<Project> getProjects() {
@@ -57,7 +59,8 @@ public class Worker {
     }
 
 	public void addProject(Project p) {
-        this.projects.add(p);
+        if(!this.getProjects().contains(p))
+            this.projects.add(p);
     }
 
 	public void removeProject(Project p) {
@@ -69,15 +72,21 @@ public class Worker {
         int medium = 0;
         int large = 0;
         for(Project p : projects){
-            if(p.getSize() == ProjectSize.SMALL){
-                small++;
+            if(p.getStatus() == ProjectStatus.FINISHED){
+                continue;
             }
-            if(p.getSize() == ProjectSize.MEDIUM){
-                medium++;
+            else{
+                if(p.getSize() == ProjectSize.SMALL){
+                    small++;
+                }
+                if(p.getSize() == ProjectSize.MEDIUM){
+                    medium++;
+                }
+                if(p.getSize() == ProjectSize.LARGE){
+                    large++;
+                }
             }
-            if(p.getSize() == ProjectSize.LARGE){
-                large++;
-            }
+
         }
         return ((3*large) + (2*medium) + small);
     }
