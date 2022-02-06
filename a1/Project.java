@@ -25,10 +25,10 @@ public class Project {
         return this.name == o1.name;
     }
 
-//	@Override
-//	public String toString() {
-//
-//    }
+	@Override
+	public String toString() {
+        return this.getName() + ":" + this.getWorkers().size() + ":" + this.getStatus();
+    }
 
 	public String getName() {
         return this.name;
@@ -55,7 +55,8 @@ public class Project {
     }
 
 	public void addWorker(Worker w) {
-        this.projectWorkers.add(w);
+        if(!this.getWorkers().contains(w))
+            this.projectWorkers.add(w);
     }
 
 	public void removeWorker(Worker w) {
@@ -75,6 +76,8 @@ public class Project {
     }
 
 	public void addQualification(Qualification q) {
+        if(this.qs.contains(q))
+            return;
         this.qs.add(q);
     }
 
@@ -96,9 +99,10 @@ public class Project {
     }
 
 	public boolean isHelpful(Worker w) {
-        for(Qualification q : getMissingQualifications()){
-            if(w.getQualifications().contains(q))
+        for(Qualification q : w.getQualifications()){
+            if(getMissingQualifications().contains(q)) {
                 return true;
+            }
         }
         return false;
     }
