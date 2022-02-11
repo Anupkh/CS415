@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="a2.TestChatbotServerPartial" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-11T00:25:33" hostname="DESKTOP-S3MA0J4" time="0.606">
+  <properties/>
+  <testcase name="testHappyPathOneLine()" classname="a2.TestChatbotServerPartial" time="0.606"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
